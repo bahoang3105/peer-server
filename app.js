@@ -1,10 +1,10 @@
 import express from "express";
 import "dotenv/config";
 import cors from "cors";
-import { ExpressPeerServer } from "peer";
+import peer from "peer";
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const concurrent_limit = process.env.CONCURRENT_LIMIT || 50;
 
 app.use(cors());
@@ -13,9 +13,8 @@ const server = app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at port: ${port}`);
 });
 
-const peerServer = ExpressPeerServer(server, {
-  path: "/peer",
+const peerServer = peer.ExpressPeerServer(server, {
   concurrent_limit,
 });
 
-app.use("/peerjs", peerServer);
+app.use("/", peerServer);
