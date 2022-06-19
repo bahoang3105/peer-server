@@ -19,5 +19,6 @@ const server = app.listen(port, () => {
 
 // app.use("/", peerServer);
 app.get("/test", (req, res) => {
+  console.log("tesssst");
   res.send("hello world");
 });
