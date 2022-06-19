@@ -18,3 +18,6 @@ const peerServer = peer.ExpressPeerServer(server, {
 });
 
 app.use("/", peerServer);
+app.get('/test', (req, res) => {
+  res.send('hello world')
+});
