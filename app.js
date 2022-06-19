@@ -13,11 +13,11 @@ const server = app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at port: ${port}`);
 });
 
-const peerServer = peer.ExpressPeerServer(server, {
-  concurrent_limit,
-});
+// const peerServer = peer.ExpressPeerServer(server, {
+//   concurrent_limit,
+// });
 
-app.use("/", peerServer);
-app.get('/test', (req, res) => {
-  res.send('hello world')
+// app.use("/", peerServer);
+app.get("/test", (req, res) => {
+  res.send("hello world");
 });
